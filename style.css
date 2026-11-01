@@ -1,0 +1,375 @@
+/* AulaFinder | Layout basato sui wireframe PC e smartphone.
+   Palette: #071F29 #19404A #9DE8D7 #26A7A9 #FF8A6B #E4F6F2 #568DB8 */
+:root {
+  --navy:#071F29; --petrol:#19404A; --mint:#9DE8D7;
+  --teal:#26A7A9; --coral:#FF8A6B; --ice:#E4F6F2;
+  --blue:#568DB8; --ink:#08171C; --muted:#3D5861;
+  --line:#CEE5E2; --page:#F3FAF8; --white:#FFFFFF;
+  --hero-gradient:linear-gradient(120deg,#071F29 0%,#19404A 35%,#26A7A9 72%,#9DE8D7 100%);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {margin:0;background:#EEF6F4;color:var(--ink);font-size:15px}
+button,input,select {font:inherit}
+button {cursor:pointer}
+a {color:#0B5678}
+p {color:#000;line-height:1.65}
+h1,h2,h3,p {margin-top:0}
+h1 {font-size:clamp(24px,2.7vw,35px);letter-spacing:-.045em;line-height:1.15}
+h2 {font-size:18px;letter-spacing:-.02em}
+:focus-visible {outline:3px solid var(--coral);outline-offset:3px}
+[hidden] {display:none!important}
+.sr-only {position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.app-shell {max-width:1560px;min-height:100vh;margin:auto;background:var(--white);border-left:1px solid var(--line);border-right:1px solid var(--line);box-shadow:0 15px 55px #05262b10}
+.site-header {min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 28px;background:var(--hero-gradient);color:white;border-bottom:3px solid var(--mint)}
+.brand {display:flex;align-items:center;gap:14px;min-width:0}
+.logo-button {width:62px;height:62px;flex-shrink:0;display:block;overflow:hidden;padding:0;border:2px solid #c8fff09c;border-radius:50%;background:#091921;box-shadow:0 5px 18px #00151d55;transition:transform .18s}
+.logo-button:hover {transform:scale(1.06)}
+.logo-button img {width:100%;height:100%;object-fit:contain;display:block;border-radius:50%}
+.brand-title {border:0;padding:0;background:transparent;color:#fff;font-size:clamp(21px,2.4vw,32px);font-weight:800;letter-spacing:-.045em}
+.header-controls {display:flex;align-items:center;gap:13px;margin-left:auto}
+.header-control {display:flex;flex-direction:column;gap:5px;font-size:11px;color:#fff;font-weight:700;letter-spacing:.02em}
+.header-control select {height:40px;min-width:145px;border:1px solid #c2f5e7;background:#fff;color:var(--ink);border-radius:11px;padding:0 12px;font-weight:700}
+.header-hour select {min-width:106px}
+.admin-button {height:40px;margin-top:16px;padding:0 22px;border:1px solid #c2f5e7;background:#f8fffd;color:var(--ink);border-radius:11px;font-weight:700}
+.menu-button {display:none}
+.workspace {display:flex;align-items:stretch;min-height:calc(100vh - 92px)}
+.sidebar {width:263px;flex:0 0 263px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,#EAF5F3,#F6FBFA);border-right:1px solid var(--line)}
+.side-navigation {padding:22px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.side-link {width:100%;min-height:51px;display:flex;align-items:center;gap:13px;border:1px solid #c6ddd9;background:#fff;color:var(--ink);border-radius:12px;text-align:left;font-weight:700;padding:9px 14px;transition:.2s}
+.side-link:hover,.side-link.is-active {background:var(--petrol);color:white;border-color:var(--petrol)}
+.nav-icon {width:27px;height:27px;flex:0 0 27px;display:block}
+.schedule-subnav {display:flex;flex-direction:column;gap:6px;margin:-2px 0 3px 20px;padding-left:12px;border-left:2px solid #aad3ca}
+.schedule-subnav button {background:transparent;border:0;text-align:left;padding:9px 8px;font-size:13px;font-weight:650;color:var(--petrol);border-radius:6px}
+.schedule-subnav button:hover,.schedule-subnav button.is-active {background:#d7efea}
+.history-block {margin-top:2px;min-height:150px;padding:15px;border:1px solid #c6ddd9;border-radius:12px;background:#fff}
+.history-block h2 {font-size:15px;margin-bottom:12px}
+.history-list {display:flex;flex-direction:column;gap:4px}
+.history-item {border:0;border-radius:7px;padding:8px 4px;background:transparent;text-align:left;color:#123e4a;font-size:13px;overflow-wrap:anywhere}
+.history-item:hover {background:#eaf6f2}
+.clear-history-button {width:100%;margin-top:12px;min-height:38px;border:1px solid #deac9f;border-radius:9px;background:#fff7f5;color:#6f2f20;font-size:12px;font-weight:750;transition:background .15s}
+.clear-history-button:not(:disabled):hover {background:#ffe4dc}
+.clear-history-button:disabled {opacity:.45;cursor:not-allowed}
+.small-muted {color:#587078;font-size:13px;line-height:1.4;margin:0}
+.about-block {padding:22px 23px 25px;border-top:1px solid var(--line)}
+.about-toggle {background:none;border:0;padding:0;color:var(--ink);font-weight:800;text-align:left;font-size:15px}
+.about-block p {margin:10px 0 0;font-size:12px;line-height:1.55}
+.main-content {min-width:0;flex:1;padding:20px 25px 30px;background:var(--white)}
+.page {width:100%}
+.school-image {height:clamp(215px,26vw,336px);border-radius:18px;overflow:hidden;background:#F4F4F1;border:1px solid var(--line);box-shadow:0 5px 19px #0c343010}
+.school-image img {width:100%;height:100%;object-fit:cover;object-position:center 53%;display:block}
+.home-search-area {max-width:960px;margin:22px auto 0}
+.home-intro {margin-bottom:16px}
+.home-intro h1 {margin:0 0 4px}
+.home-intro p {margin:0;font-size:14px;color:#000}
+.search-form {display:flex;align-items:center;gap:8px;position:relative;min-height:71px;padding:9px 10px 9px 19px;border:2px solid var(--teal);border-radius:15px;background:white;box-shadow:0 8px 25px #0e787b10}
+.search-form:focus-within {border-color:#167f91;box-shadow:0 0 0 4px #26a7a924}
+.search-glyph {font-size:36px;line-height:1;color:var(--petrol)}
+.search-form input {min-width:0;flex:1;border:0;outline:none;background:transparent;color:var(--ink);font-size:clamp(14px,1.7vw,18px)}
+.search-form input::placeholder {color:#58676c;opacity:1}
+.search-submit {border:0;background:var(--petrol);color:white;border-radius:10px;padding:15px 23px;font-weight:750}
+.search-submit:hover {background:#0D606D}
+.search-suggestions {position:relative;margin:6px 0 0;border:1px solid var(--line);border-radius:11px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;background:white;box-shadow:0 9px 18px #17373a17}
+.search-suggestions button {display:block;width:100%;padding:12px 14px;background:#fff;border:0;text-align:left;color:var(--ink)}
+.search-suggestions button+button {border-top:1px solid #edf3f2}
+.search-suggestions button:hover {background:var(--ice)}
+.search-suggestions::-webkit-scrollbar {width:10px}
+.search-suggestions::-webkit-scrollbar-track {background:var(--ice)}
+.search-suggestions::-webkit-scrollbar-thumb {background:var(--teal);border-radius:8px;border:2px solid var(--ice)}
+@supports not selector(::-webkit-scrollbar) {.search-suggestions {scrollbar-width:thin;scrollbar-color:var(--teal) var(--ice)}}
+.free-rooms-shortcut {margin-top:14px;width:100%;min-height:44px;border:1px solid var(--teal);border-radius:12px;background:var(--ice);color:#092b34;font-weight:800;transition:.15s}
+.free-rooms-shortcut:hover {background:var(--mint)}
+.content-page {padding:8px 0;max-width:1030px;margin:0 auto}
+.page-topline {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 22px}
+.page-topline h1 {margin:0}
+.back-link {order:2;background:#eaf4f2;border:0;border-radius:9px;color:var(--petrol);font-size:13px;font-weight:700;padding:9px 12px}
+.schedule-home-buttons {display:flex;flex-direction:column;gap:17px}
+.schedule-home-buttons button {min-height:90px;display:flex;align-items:center;justify-content:flex-start;padding:18px 24px;gap:12px;border:1px solid #a8d8cf;background:linear-gradient(100deg,#EAF7F5,#F7FBFA);border-radius:16px;color:var(--petrol);font-size:21px;font-weight:800;box-shadow:0 7px 18px #0d48450d}
+.schedule-home-buttons button:hover {border-color:var(--teal);background:#def4ef}
+.schedule-home-buttons .group-arrow {font-size:22px;color:#2b8588;margin-left:auto}
+.schedule-controls {display:flex;align-items:end;gap:18px;flex-wrap:wrap;margin-bottom:21px}
+.schedule-controls label {display:flex;flex-direction:column;gap:7px;font-weight:700;color:var(--petrol)}
+.schedule-controls select {min-height:42px;min-width:min(360px,75vw);border:1px solid #acd3cc;border-radius:10px;padding:8px 10px;background:white;color:var(--ink)}
+.schedule-controls a {display:inline-flex;align-items:center;min-height:42px;border:1px solid #a1cfc8;padding:9px 13px;border-radius:9px;text-decoration:none;color:var(--petrol);font-weight:750}
+.schedule-controls a:hover {background:var(--ice)}
+.result-card {border:1px solid var(--card-stroke);border-radius:17px;background:#fff;box-shadow:0 7px 24px #16364014;overflow:hidden;margin:0 0 18px}
+.result-card.type-room {--card:#216BB2;--card-light:#ECF4FC;--card-stroke:#B3D3ED;--card-ink:#08436C}
+.result-card.type-class {--card:#0A8777;--card-light:#E6F5F0;--card-stroke:#A4D8C9;--card-ink:#085549}
+.result-card.type-teacher {--card:#19404A;--card-light:#F0F8F5;--card-stroke:#A6CAC7;--card-ink:#143E48}
+.result-card.type-free {--card:#0D847F;--card-light:#E4F6F2;--card-stroke:#9ED7D2;--card-ink:#075252}
+.result-banner {min-height:71px;display:flex;align-items:center;gap:12px;padding:13px 18px;background:var(--card);color:white}
+.result-banner .banner-icon {width:29px;height:29px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.result-banner .entity-icon {width:100%;height:100%}
+.result-banner h2 {margin:0;font-size:21px;color:white;overflow-wrap:anywhere}
+.result-body {padding:20px}
+.result-header {display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.result-header strong {font-size:19px;color:var(--card-ink)}
+.status-pill {padding:8px 12px;border-radius:999px;background:#ffdb85;color:#35270b;font-size:12px;font-weight:800;white-space:nowrap}
+.status-pill.free {background:#dbf4df;color:#125a33}
+.current-lesson {background:var(--card-light);border-radius:10px;padding:16px 18px;margin-bottom:21px;min-height:102px}
+.current-lesson .eyebrow {color:var(--card-ink);font-size:13px;margin:0 0 5px}
+.current-lesson h3 {font-size:20px;margin:0 0 5px;color:var(--card-ink)}
+.current-lesson p {margin:0;color:#000;font-size:14px}
+.daily-heading {display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px;color:var(--card-ink)}
+.daily-heading h3 {margin:0;font-size:17px;color:var(--card-ink)}
+.daily-heading span {font-size:13px;color:#4b6570}
+.hours-list {display:flex;flex-direction:column;gap:9px}
+.hour-row {display:flex;align-items:center;gap:14px;min-height:61px;padding:11px 13px;border:1px solid #D6E4E7;border-radius:12px;background:#fff}
+.hour-row.is-selected {background:var(--card);border-color:var(--card);box-shadow:0 3px 8px #0c494820;color:#fff}
+.hour-number {flex:0 0 36px;width:36px;height:36px;display:grid;place-items:center;background:var(--card-light);border-radius:50%;font-size:18px;font-weight:850;color:var(--card-ink)}
+.hour-row.is-selected .hour-number {background:#ffffff33;color:#fff}
+.hour-data {flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.hour-data strong {font-size:14px;color:inherit}
+.hour-data small {font-size:12px;color:#526c75}
+.hour-row.is-selected .hour-data small {color:#fff}
+.hour-location {max-width:38%;margin-left:auto;text-align:right;font-size:12px;color:#386478;font-weight:700;overflow-wrap:anywhere}
+.hour-row.is-selected .hour-location {color:white}
+.empty-value {color:#657a81}
+.result-note {font-size:12px;color:#435b64;margin-top:15px}
+.free-room-list {display:flex;flex-wrap:wrap;gap:8px}
+.room-chip {padding:9px 12px;border:1px solid #9acfc7;background:#fff;color:#0e4452;border-radius:10px;font-size:13px;font-weight:750}
+.room-chip:hover {background:var(--mint)}
+.result-choices {display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+.choice-button {width:100%;text-align:left;padding:13px;border:1px solid #b1d4cb;border-radius:11px;background:var(--ice);font-weight:700;color:var(--petrol)}
+.choice-button:hover {background:var(--mint)}
+.no-results {border:1px solid var(--line);padding:20px;border-radius:14px;background:var(--ice)}
+.no-results h2 {margin-bottom:8px}
+.no-results p {margin-bottom:0}
+.empty-page {min-height:440px}
+.about-page {max-width:700px}
+.about-page p {font-size:16px}
+.about-card {padding:clamp(20px,4vw,48px);border:1px solid var(--line);border-radius:20px;background:linear-gradient(120deg,#F4FCFA 0%,#fff 80%);box-shadow:0 7px 22px #0e323214}
+.about-card h1 {color:var(--petrol);margin-bottom:25px}
+.about-card p {font-size:17px;max-width:65ch;line-height:1.75}
+.about-card p:last-child {margin-bottom:0}
+.mobile-footer {display:none}
+.sidebar-backdrop {display:none}
+.logo-dialog {position:fixed;max-width:min(90vw,520px);width:520px;border:0;border-radius:50%;padding:15px;background:#071F29;box-shadow:0 14px 50px #0007}
+.logo-dialog::backdrop {background:#06191ec9}
+.logo-dialog img {width:100%;display:block;border-radius:50%;aspect-ratio:1;object-fit:contain}
+.logo-dialog button {position:absolute;right:24px;top:18px;width:37px;height:37px;border:1px solid #a6c5cc;background:#fff;color:#071F29;border-radius:50%;font-size:23px}
+@media (max-width:900px) {
+  .sidebar {width:228px;flex-basis:228px}
+  .site-header {padding-left:17px;padding-right:17px}
+  .main-content {padding:17px}
+  .header-control select {min-width:120px}
+  .school-image {height:280px}
+}
+@media (max-width:680px) {
+  .app-shell {border:0;min-height:100vh}
+  .site-header {position:relative;flex-wrap:wrap;gap:10px;min-height:0;padding:12px 14px 13px}
+  .brand {flex:1;gap:10px}
+  .logo-button {width:50px;height:50px}
+  .brand-title {font-size:23px}
+  .header-controls {order:3;flex:0 0 100%;margin:0;gap:9px}
+  .header-control {flex:1;font-size:11px}
+  .header-control select,.header-hour select {min-width:0;width:100%;height:37px}
+  .admin-button {display:none}
+  .menu-button {display:grid;place-items:center;min-width:43px;height:43px;border:1px solid #c7fff3;border-radius:11px;background:#e7fcf4;color:#071F29;font-size:23px}
+  .workspace {display:block;min-height:calc(100vh - 140px)}
+  .sidebar {position:fixed;z-index:20;top:0;bottom:0;left:0;width:min(310px,86vw);overflow-y:auto;transform:translateX(-105%);transition:transform .22s;box-shadow:12px 0 30px #05262b30}
+  .sidebar.is-open {transform:translateX(0)}
+  .side-navigation {padding-top:26px}
+  .sidebar-backdrop:not([hidden]) {display:block;position:fixed;inset:0;z-index:19;background:#071f2999}
+  .main-content {padding:13px 13px 80px;min-height:calc(100vh - 146px);display:flex;flex-direction:column}
+  .school-image {height:clamp(172px,49vw,235px);border-radius:14px}
+  .home-search-area {margin:15px 0 0}
+  .home-intro {margin-bottom:12px}
+  .home-intro h1 {font-size:24px}
+  .search-form {min-height:58px;padding:6px 7px 6px 12px;border-radius:12px}
+  .search-glyph {font-size:28px}
+  .search-form input {font-size:14px}
+  .search-submit {padding:11px 12px;font-size:13px}
+  .free-rooms-shortcut {margin-top:11px}
+  .content-page {padding:5px 1px 16px}
+  .schedule-home-buttons {gap:16px}
+  .schedule-home-buttons button {min-height:77px;font-size:17px}
+  .page-topline {margin-bottom:17px}
+  .page-topline h1 {font-size:27px}
+  .result-body {padding:13px}
+  .result-banner {padding:12px 14px;min-height:62px}
+  .result-banner h2 {font-size:18px}
+  .result-header strong {font-size:17px}
+  .current-lesson {padding:13px;min-height:0}
+  .current-lesson h3 {font-size:17px}
+  .hour-row {padding:9px 10px;gap:9px}
+  .hour-number {width:32px;height:32px;flex-basis:32px;font-size:16px}
+  .hour-data strong {font-size:13px}
+  .hour-location {font-size:11px;max-width:33%}
+  .schedule-controls {align-items:stretch;gap:10px}
+  .schedule-controls label,.schedule-controls select {width:100%;min-width:0}
+  .mobile-footer {display:flex;align-items:stretch;justify-content:space-around;margin-top:auto;border-top:1px solid var(--line);background:#eff8f5;border-radius:12px;min-height:67px}
+  .mobile-footer button {flex:1;border:0;background:transparent;font-weight:750;color:var(--petrol)}
+  .mobile-footer button+button {border-left:1px solid #bbd4cf}
+  .empty-page {min-height:250px}
+}
+@media (prefers-reduced-motion:reduce) {*,*::before,*::after {transition:none!important;scroll-behavior:auto!important}}
+.free-hour-item {border:1px solid #D5E8E4;padding:13px;margin-bottom:11px;border-radius:12px}
+.free-hour-item.is-highlighted {border:2px solid var(--teal);background:#f0faf7}
+.free-hour-item h3 {font-size:15px;color:#153c45;margin:0 0 12px}
+.free-hour-item h3 small {font-size:12px;font-weight:500;color:#4a6368}
+/* Il contenitore Main riceve focus via JS per la navigazione, senza bordo decorativo. */
+.main-content:focus {outline:none}
+
+/* Pulsante dalla ricerca all'orario settimanale specifico */
+.complete-schedule-button {width:100%;min-height:50px;margin-top:16px;border:0;border-radius:11px;background:var(--card);color:#fff;font-size:15px;font-weight:800}
+.complete-schedule-button:hover {filter:brightness(.88)}
+/* Griglia settimanale completa: sei ore, cinque giorni */
+.weekly-title {margin:0 0 18px;color:var(--card-ink);font-size:18px}
+.weekly-scroll {max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;padding-bottom:6px}
+.weekly-grid {display:grid;grid-template-columns:46px repeat(5,minmax(142px,1fr));gap:7px;min-width:785px}
+.weekly-corner,.weekly-day,.weekly-number {display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:750}
+.weekly-corner,.weekly-day {padding:13px 4px;border-radius:9px;background:var(--card-light);color:var(--card-ink)}
+.weekly-number {border-radius:9px;color:var(--card-ink);background:var(--card-light);font-size:17px}
+.weekly-cell {min-height:91px;border:1px solid #dce6e8;border-radius:10px;background:#fff;display:flex;flex-direction:column;gap:5px;padding:10px 9px;line-height:1.3;color:var(--ink);overflow-wrap:anywhere}
+.weekly-cell strong {font-size:12px;font-weight:800}
+.weekly-cell small {font-size:11px;color:#46575e}
+.weekly-cell .weekly-location {margin-top:auto;text-align:right;color:var(--card-ink);font-weight:800}
+.weekly-cell.is-empty {background:#f6f9f8;color:#8b999b}
+.weekly-cell.is-current {border:2px solid var(--card);background:var(--card-light);box-shadow:inset 4px 0 var(--coral)}
+.weekly-cell.is-current strong {color:var(--card-ink)}
+@media (max-width:680px){
+ .weekly-grid{min-width:720px;grid-template-columns:36px repeat(5,131px);gap:6px}
+ .weekly-cell{min-height:86px;padding:8px}
+ .about-card p{font-size:15px}
+}
+
+/* Iconografia coerente: lo stesso SVG per ogni categoria in tutto il sito. */
+.icon-inline,.group-entity-icon,.menu-entity-icon {display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.icon-inline {width:20px;height:20px;vertical-align:middle;margin-right:8px}
+.icon-inline .entity-icon {width:100%;height:100%}
+.menu-entity-icon {width:18px;height:18px;margin-right:6px}
+.menu-entity-icon .entity-icon {width:100%;height:100%}
+.group-entity-icon {width:32px;height:32px;color:var(--petrol);margin-right:8px}
+.group-entity-icon .entity-icon {width:100%;height:100%}
+.schedule-subnav button {display:flex;align-items:center;gap:3px}
+.schedule-home-buttons .group-arrow {font-weight:650}
+.history-item,.search-suggestions button,.choice-button {display:flex;align-items:center;gap:5px}
+.daily-heading h3 {display:flex;align-items:center;gap:3px}
+.weekly-cell .room-names {font-size:11px;color:#345861;line-height:1.35;overflow-wrap:anywhere}
+.free-weekly-cell {gap:8px}
+@media (max-width:680px) {
+ .schedule-home-buttons button {padding:13px 18px}
+ .group-entity-icon {width:27px;height:27px}
+}
+
+.nav-clock{width:27px;height:27px;flex:0 0 27px;display:inline-flex;align-items:center;justify-content:center}
+.nav-clock .entity-icon{width:100%;height:100%}
+.search-glyph {width:29px;height:29px;display:flex;align-items:center;justify-content:center;flex:0 0 29px}
+.search-glyph .entity-icon{width:100%;height:100%}
+
+/* V8: logo ufficiale originale in PNG ad alta risoluzione, nessun ridisegno. */
+.logo-button { background: transparent; border-color: transparent; box-shadow: 0 5px 18px #00151d55; }
+.logo-button img { width: 100%; height: 100%; display: block; object-fit: contain; border-radius: 0; }
+.logo-dialog { border-radius: 20px; background: transparent; padding: 0; overflow: visible; box-shadow: none; }
+.logo-dialog img { width: 100%; height: auto; border-radius: 0; object-fit: contain; }
+.logo-dialog button { z-index: 2; top: 10px; right: 9px; }
+
+/* V7: solo Finder ha lo stesso gradiente verde acqua / menta dello sfondo.
+   Aula resta bianco e la tipografia, la dimensione e il layout non cambiano. */
+.brand-title .brand-aula { color: #ffffff; }
+.brand-title .brand-finder { color: #9DE8D7; }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .brand-title .brand-finder {
+    background: linear-gradient(120deg, #9DE8D7 0%, #26A7A9 48%, #E4F6F2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* V8: correzioni funzionali e accessibilità mobile, estetica V7 invariata. */
+@media (max-width:680px) {
+  body.mobile-menu-open { overflow: hidden; }
+  .sidebar { overscroll-behavior-y:contain; -webkit-overflow-scrolling:touch; touch-action:pan-y; }
+  .sidebar.is-open { visibility:visible; }
+  .search-form input { font-size:16px; } /* Evita zoom automatico di Safari su iPhone */
+  .schedule-controls select, .header-control select { font-size:16px; }
+  .weekly-scroll { -webkit-overflow-scrolling:touch; }
+  .logo-dialog { max-width:calc(100vw - 24px); max-height:calc(100dvh - 36px); }
+  .logo-dialog img { max-height:calc(100dvh - 40px); }
+}
+@media (max-width:360px) {
+  .brand-title {font-size:21px;}
+  .brand {gap:7px;}
+  .search-form {gap:6px;padding-left:9px;}
+  .search-submit {padding-left:10px;padding-right:10px;}
+  .search-glyph {width:25px;flex-basis:25px;}
+}
+
+/* AulaFinder V9: schede palestra multi-classe e nomi docenti più lunghi. */
+.result-card .result-banner h2,.result-card .result-header strong,.hour-data,.weekly-cell {overflow-wrap:anywhere}
+.hour-data small {line-height:1.5}
+.result-card .result-banner h2 {font-size:clamp(17px,2.2vw,23px)}
+.weekly-cell .gym-group {display:block;line-height:1.3}
+.weekly-cell .gym-group+.gym-group {border-top:1px solid #dae7ea;padding-top:4px;margin-top:4px}
+.teacher-subject-tag {white-space:normal}
+@media(max-width:680px){.result-card .result-banner h2 {font-size:18px}.result-card .result-header strong {font-size:18px}.weekly-cell .gym-group{font-size:10px}}
+
+/* V10 - Effetto "Aula": due fili orbitali luce turchese, globo e riflesso,
+   ispirati all'orbita del logo. Titolo accessibile come testo HTML. */
+.brand-title { overflow: visible; white-space: nowrap; }
+.brand-title .brand-aula {
+  position:relative; isolation:isolate; display:inline-block; z-index:0;
+  color:#fff; text-shadow:0 0 3px #ffffffa6,0 0 10px #a2fff2a6,0 0 17px #33efeb57;
+}
+.brand-aula-letters {position:relative;z-index:2;}
+.brand-aula-orbit {
+  position:absolute;left:-31%;top:50%;width:157%;height:240%;
+  transform:translateY(-50%);overflow:visible;z-index:3;
+  pointer-events:none;filter:drop-shadow(0 0 2px #63fff3b5);
+}
+.brand-aula-orbit .orbit-rail {
+  fill:none;stroke:url(#brandOrbitGradient);stroke-width:2.75;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.brand-aula-orbit .orbit-glow {
+  fill:none;stroke:#45fff0;stroke-width:7;opacity:.56;
+  filter:url(#brandOrbitGlow);stroke-linecap:round;
+}
+/* Il lato posteriore dell'orbita resta dietro al testo per l'effetto 3D. */
+.brand-aula-orbit .orbit-back {opacity:.58;}
+.brand-aula-orbit .orbit-front {opacity:.92;}
+@media (max-width:680px){
+ .brand-aula-orbit{width:157%;height:220%;left:-29%;}
+ .brand-title .brand-aula{text-shadow:0 0 3px #ffffffb8,0 0 8px #85fff2b3;}
+}
+
+
+/* AulaFinder V11: unico intervento visivo, icona Home in navigazione. */
+.home-icon {width:27px;height:27px;flex:0 0 27px;display:block}
+.mobile-home-button {display:none}
+
+/* Elimina il riquadro bianco imposto da alcuni browser mobili al dialog nativo.
+   L'immagine PNG ufficiale resta identica e mantiene la propria trasparenza. */
+.logo-dialog,
+.logo-dialog:modal {
+  -webkit-appearance:none;
+  appearance:none;
+  background-color:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  outline:0;
+  padding:0 !important;
+  box-shadow:none !important;
+}
+.logo-dialog img {background:transparent !important;}
+.logo-dialog::backdrop {background:#06191ed9;}
+@media (max-width:680px) {
+  .mobile-home-button {
+    display:grid;
+    place-items:center;
+    flex:0 0 43px;
+    width:43px;
+    height:43px;
+    border:1px solid #c7fff3;
+    border-radius:11px;
+    color:#071F29;
+    background:#e7fcf4;
+  }
+  .mobile-home-button .home-icon {width:23px;height:23px;flex-basis:23px;}
+  .mobile-home-button:active {background:#9DE8D7;}
+  .logo-dialog,
+  .logo-dialog:modal {background-color:transparent !important;}
+}
